@@ -29,17 +29,14 @@ export class HomePage extends Component {
   
   render() {
     const { users } = this.state
-    let { cats, dogs, isAdopting } = this.props
-    cats = cats[0]
-    dogs = dogs[0]
+    let { cats, dogs, isAdopting, handleAdoptDog, handleAdoptCat } = this.props
     console.log(users)
     return (
       <div className="home-page">
         <Header /> 
-        {users.count === 1 ? `It's your turn to adopt!` : `${users.count} in line ahead of you.`}
+        {users.count === 1 ? `It's your turn to adopt!` : `${users.count} in line ahead of you to adopt.`}
         {!isAdopting && <Button text={'Click here to start adopting!'} handleClick={this.props.handleClick} />}
         <AnimalInfo 
-          id={dogs.id} 
           name={dogs.name} 
           imageURL={dogs.imageURL} 
           imageDescription={dogs.imageDescription} 
@@ -47,6 +44,7 @@ export class HomePage extends Component {
           age={dogs.age}
           breed={dogs.breed}
           story={dogs.story}
+          handleClick={handleAdoptDog}
         />
         <AnimalInfo 
           id={cats.id} 
@@ -57,6 +55,7 @@ export class HomePage extends Component {
           age={cats.age}
           breed={cats.breed}
           story={cats.story}
+          handleClick={handleAdoptCat}
         />
 
       </div>
