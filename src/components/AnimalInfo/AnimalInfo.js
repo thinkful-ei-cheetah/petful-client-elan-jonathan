@@ -9,7 +9,7 @@ export default function AnimalInfo(props) {
         <span>{`${props.sex} || Age: ${props.age}`}</span>
         <p>{props.breed}</p>
         <p>{`Story: ${props.story}`}</p>
-        <Button text="Adopt me!" handleClick={props.handleClick} />
+        {props.isAdopting && <Button text="Adopt me!" handleClick={props.handleClick} />}
       </div>
   )
 }

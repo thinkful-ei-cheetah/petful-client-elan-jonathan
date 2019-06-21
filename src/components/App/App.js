@@ -11,7 +11,8 @@ class App extends Component {
     dogs: [],
     users: [],
     currentUser: '',
-    isAdopting: false
+    isAdopting: false,
+    error: null
   }
 
   async componentDidMount() {
@@ -52,7 +53,7 @@ class App extends Component {
       })
       const cats = await axios.get('http://localhost:8080/api/cat')
       const catData = cats.data
-      this.setState({ cats: catData.data })
+      this.setState({ cats: catData.data, isAdopting: false })
     }
   }
 
@@ -67,17 +68,18 @@ class App extends Component {
     }
     const dogs = await axios.get('http://localhost:8080/api/dog')
     const dogData = dogs.data
-    this.setState({ dogs: dogData.data })
+    this.setState({ dogs: dogData.data, isAdopting: false })
   }
 
   render() {
-    const { cats, dogs, users } = this.state
+    const { cats, dogs, users, error } = this.state
     return (
       <div className="App">
         <nav className="nav-bar" role="navigation">
           <Nav />
         </nav>
         <main className="app-body">
+        {error && <p className="error">{error}</p>}
           <Switch>
             <Route
               exact path={"/"}

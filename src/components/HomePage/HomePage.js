@@ -9,30 +9,19 @@ export class HomePage extends Component {
   static defaultProps = {
     cats: [],
     dogs: [],
-    handleClick: () => {}
-  }
-  
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      users: {}
-    }
-  }
-
-  async componentWillMount() {
-    const response = await axios.get('http://localhost:8080/api/user')
-    const users = await response.data
-    this.setState({ users: users })
+    handleClick: () => {},
+    users: [],
+    handleAdoptDog: () => {},
+    handleAdoptCat: () => {},
+    isAdopting: false
   }
   
   render() {
-    const { users } = this.state
-    let { cats, dogs, isAdopting, handleAdoptDog, handleAdoptCat } = this.props
+    let { cats, dogs, isAdopting, handleAdoptDog, handleAdoptCat, users } = this.props
     return (
       <div className="home-page">
         <Header /> 
-        {users.count === 1 ? `It's your turn to adopt!` : `${users.count} in line ahead of you to adopt.`}
+        {isAdopting && (users[0].count <= 1 || users[0].count === undefined ? `It's your turn to adopt! You have 5 minutes to choose an animal to adopt.` : `${users[0].count} in line ahead of you to adopt.`)}
         {!isAdopting && <Button text={'Click here to start adopting!'} handleClick={this.props.handleClick} />}
         <AnimalInfo 
           name={dogs.name} 
@@ -43,6 +32,7 @@ export class HomePage extends Component {
           breed={dogs.breed}
           story={dogs.story}
           handleClick={handleAdoptDog}
+          isAdopting={isAdopting}
         />
         <AnimalInfo 
           id={cats.id} 
@@ -54,6 +44,7 @@ export class HomePage extends Component {
           breed={cats.breed}
           story={cats.story}
           handleClick={handleAdoptCat}
+          isAdopting={isAdopting}
         />
 
       </div>
