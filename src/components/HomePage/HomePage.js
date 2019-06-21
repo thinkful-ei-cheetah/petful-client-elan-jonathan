@@ -1,31 +1,43 @@
 import React, { Component } from 'react'
 import Header from '../Header/Header'
 import AnimalInfo from '../AnimalInfo/AnimalInfo';
+import Button from '../Button/Button';
 
 
 export class HomePage extends Component {
   static defaultProps = {
     cats: [],
-    dogs: []
+    dogs: [],
+    handleClick: () => {}
   }
-
+  
   render() {
-    const { cats, dogs } = this.props
-    console.log(this.props)
+    let { cats, dogs } = this.props
+    cats = cats[0]
+    dogs = dogs[0]
     return (
       <div className="home-page">
         <Header />
+        <Button text={'Click here to start adopting!'} handleClick={this.props.handleClick} />
         <AnimalInfo 
-          id={dogs[0].id} 
-          name={dogs[0].name} 
-          imageURL={dogs[0].imageURL} 
-          imageDescription={dogs[0].imageDescription} 
+          id={dogs.id} 
+          name={dogs.name} 
+          imageURL={dogs.imageURL} 
+          imageDescription={dogs.imageDescription} 
+          sex={dogs.sex}
+          age={dogs.age}
+          breed={dogs.breed}
+          story={dogs.story}
         />
         <AnimalInfo 
-          id={cats[0].id} 
-          name={cats[0].name} 
-          imageURL={cats[0].imageURL} 
-          imageDescription={cats[0].imageDescription} 
+          id={cats.id} 
+          name={cats.name} 
+          imageURL={cats.imageURL} 
+          imageDescription={cats.imageDescription} 
+          sex={cats.sex}
+          age={cats.age}
+          breed={cats.breed}
+          story={cats.story}
         />
 
       </div>
