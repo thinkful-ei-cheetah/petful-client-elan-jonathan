@@ -21,7 +21,6 @@ class App extends Component {
     const catData = await cats.data
     const dogs = await axios.get('http://localhost:8080/api/dog')
     const dogData = await dogs.data
-    console.log(dogData, catData)
     this.setState({
       users: [users],
       cats: catData.data,
@@ -34,7 +33,7 @@ class App extends Component {
       this.setState({
         users: [users]
       })
-    }, 300000)
+    }, 5000)
   }
 
   handleAddToAdoptQueue = async () => {
@@ -61,7 +60,6 @@ class App extends Component {
     const { currentUser } = this.state
     const { users } = this.state
     if(currentUser === users[0].nextinline.data.entertime) {
-      console.log('made it')
       await axios.delete('http://localhost:8080/api/dog')
       await axios.delete('http://localhost:8080/api/user', {
         entertime: currentUser

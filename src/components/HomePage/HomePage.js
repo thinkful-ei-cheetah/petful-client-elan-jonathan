@@ -23,14 +23,12 @@ export class HomePage extends Component {
   async componentWillMount() {
     const response = await axios.get('http://localhost:8080/api/user')
     const users = await response.data
-    console.log(users)
     this.setState({ users: users })
   }
   
   render() {
     const { users } = this.state
     let { cats, dogs, isAdopting, handleAdoptDog, handleAdoptCat } = this.props
-    console.log(users)
     return (
       <div className="home-page">
         <Header /> 
