@@ -51,6 +51,9 @@ class App extends Component {
       await axios.delete('http://localhost:8080/api/user', {
         entertime: currentUser
       })
+      const cats = await axios.get('http://localhost:8080/api/cat')
+      const catData = cats.data
+      this.setState({ cats: catData.data })
     }
   }
 
@@ -64,6 +67,9 @@ class App extends Component {
         entertime: currentUser
       })
     }
+    const dogs = await axios.get('http://localhost:8080/api/dog')
+    const dogData = dogs.data
+    this.setState({ dogs: dogData.data })
   }
 
   render() {
