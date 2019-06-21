@@ -47,7 +47,6 @@ class App extends Component {
     const { currentUser } = this.state
     const { users } = this.state
     if(currentUser === users[0].nextinline.data.entertime) {
-      console.log('made it')
       await axios.delete('http://localhost:8080/api/cat')
       await axios.delete('http://localhost:8080/api/user', {
         entertime: currentUser
@@ -59,6 +58,7 @@ class App extends Component {
     const { currentUser } = this.state
     const { users } = this.state
     if(currentUser === users[0].nextinline.data.entertime) {
+      console.log('made it')
       await axios.delete('http://localhost:8080/api/dog')
       await axios.delete('http://localhost:8080/api/user', {
         entertime: currentUser
