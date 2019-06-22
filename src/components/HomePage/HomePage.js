@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Header from '../Header/Header'
 import AnimalInfo from '../AnimalInfo/AnimalInfo';
-import axios from 'axios'
 import Button from '../Button/Button';
+import './HomePage.css'
 
 
 export class HomePage extends Component {
@@ -21,8 +21,12 @@ export class HomePage extends Component {
     return (
       <div className="home-page">
         <Header /> 
-        {isAdopting && (users[0].count <= 1 || users[0].count === undefined ? `It's your turn to adopt! You have 5 minutes to choose an animal to adopt.` : `${users[0].count} in line ahead of you to adopt.`)}
-        {!isAdopting && <Button text={'Click here to start adopting!'} handleClick={this.props.handleClick} />}
+        {isAdopting && (users[0].count <= 1 || users[0].count === undefined ?
+             <p className="line-info">{`It's your turn to adopt! You have 5 minutes to choose an animal to adopt.`}</p>
+          :  <p className="line-info">{`${users[0].count} in line ahead of you to adopt.`}</p>)}
+        {!isAdopting && <div className="btn-container">
+          <Button text={'Click here to start adopting!'} handleClick={this.props.handleClick} />
+        </div>}
         <AnimalInfo 
           name={dogs.name} 
           imageURL={dogs.imageURL} 

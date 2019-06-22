@@ -1,0 +1,23 @@
+.animal-info {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.animal-info > h2 {
+  text-align: center;
+}
+
+.animal-info > p, .animal-info > span {
+  font-size: 20px;
+  margin: .5em 0;
+  max-width: 80%;
+}
+
+
+.animal-info > img {
+  width: 80%;
+  height: auto;
+  margin-bottom: .5em;
+}

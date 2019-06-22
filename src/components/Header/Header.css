@@ -1,0 +1,12 @@
+header > h1 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.about {
+  padding: 0 .5em;
+  text-align: center;
+  font-size: 18px;
+  max-width: 60%;
+  margin: 0 auto;
+}

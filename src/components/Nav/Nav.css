@@ -1,0 +1,25 @@
+.nav-bar {
+  background-color: #41B3A3;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link > h1 {
+  display: inline;
+  padding: .25em;
+}
+
+.dog {
+  transform: rotateY(180deg);
+}
+
+.dog.icon, .cat.icon {
+  max-width: 75px;
+  width: 10%;
+  height: auto;
+}

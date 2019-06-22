@@ -75,9 +75,7 @@ class App extends Component {
     const { cats, dogs, users, error } = this.state
     return (
       <div className="App">
-        <nav className="nav-bar" role="navigation">
-          <Nav />
-        </nav>
+        <Nav />
         <main className="app-body">
         {error && <p className="error">{error}</p>}
           <Switch>
