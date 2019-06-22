@@ -14,13 +14,13 @@ class App extends Component {
     isAdopting: false,
     error: null
   }
-
+  //https://petful-server-elan-jonathan.herokuapp.com/api/cat
   async componentDidMount() {
-    const response = await axios.get('http://localhost:8080/api/user')
+    const response = await axios.get('https://petful-server-elan-jonathan.herokuapp.com/api/user')
     const users = await response.data
-    const cats = await axios.get('http://localhost:8080/api/cat')
+    const cats = await axios.get('https://petful-server-elan-jonathan.herokuapp.com/api/cat')
     const catData = await cats.data
-    const dogs = await axios.get('http://localhost:8080/api/dog')
+    const dogs = await axios.get('https://petful-server-elan-jonathan.herokuapp.com/api/dog')
     const dogData = await dogs.data
     this.setState({
       users: [users],
@@ -29,7 +29,7 @@ class App extends Component {
     })
 
     setInterval(async () => {
-      const response = await axios.get('http://localhost:8080/api/user')
+      const response = await axios.get('https://petful-server-elan-jonathan.herokuapp.com/api/user')
       const users = await response.data
       this.setState({
         users: [users]
@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   handleAddToAdoptQueue = async () => {
-    const response = await axios.post('http://localhost:8080/api/user')
+    const response = await axios.post('https://petful-server-elan-jonathan.herokuapp.com/api/user')
     const user = await response.data
     this.setState({ isAdopting: true, currentUser: user.nextinline.data.entertime })
   }
@@ -47,11 +47,11 @@ class App extends Component {
     const { currentUser } = this.state
     const { users } = this.state
     if(currentUser === users[0].nextinline.data.entertime) {
-      await axios.delete('http://localhost:8080/api/cat')
-      await axios.delete('http://localhost:8080/api/user', {
+      await axios.delete('https://petful-server-elan-jonathan.herokuapp.com/api/cat')
+      await axios.delete('https://petful-server-elan-jonathan.herokuapp.com/api/user', {
         entertime: currentUser
       })
-      const cats = await axios.get('http://localhost:8080/api/cat')
+      const cats = await axios.get('https://petful-server-elan-jonathan.herokuapp.com/api/cat')
       const catData = cats.data
       this.setState({ cats: catData.data, isAdopting: false })
     }
@@ -61,12 +61,12 @@ class App extends Component {
     const { currentUser } = this.state
     const { users } = this.state
     if(currentUser === users[0].nextinline.data.entertime) {
-      await axios.delete('http://localhost:8080/api/dog')
-      await axios.delete('http://localhost:8080/api/user', {
+      await axios.delete('https://petful-server-elan-jonathan.herokuapp.com/api/dog')
+      await axios.delete('https://petful-server-elan-jonathan.herokuapp.com/api/user', {
         entertime: currentUser
       })
     }
-    const dogs = await axios.get('http://localhost:8080/api/dog')
+    const dogs = await axios.get('https://petful-server-elan-jonathan.herokuapp.com/api/dog')
     const dogData = dogs.data
     this.setState({ dogs: dogData.data, isAdopting: false })
   }
