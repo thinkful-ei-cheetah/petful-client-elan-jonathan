@@ -12,15 +12,15 @@ Petful is a pet adoption service that allows users to enter into an adoption que
 2. Start the development client with `npm start` 
 [http://localhost:3000](http://localhost:3000) should automatically open in your default browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+  The page will reload if you make edits.<br>
+  You will also see any lint errors in the console.
 
 ### Scripts 
 
 1. Run tests with `npm test`.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  Launches the test runner in the interactive watch mode.<br>
+  See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 2. Build the app for production with `npm run build`
 
