@@ -16,7 +16,7 @@ class App extends Component {
     error: null
   }
 
-  API_URL = 'http://localhost:8080/api'
+  API_URL = 'https://petful-server-elan-jonathan.herokuapp.com/api'
   //  https://petful-server-elan-jonathan.herokuapp.com/api
   //https://petful-server-elan-jonathan.herokuapp.com/api/cat
   async componentDidMount() {
