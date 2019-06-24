@@ -10,7 +10,7 @@ export default function Nav() {
     <nav role="navigation" className="nav-bar">
       <Link to={'/'} className="link">
         <FontAwesomeIcon icon={faCat} className="cat icon" color="black"/>
-        <h1>Adopt A Pet!</h1>
+        <h1>Petful</h1>
         <FontAwesomeIcon icon={faDog} className="dog icon" color="black"/>
       </Link>
     </nav>
